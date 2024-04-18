@@ -6,6 +6,7 @@ import About from "./Pages/About";
 import SignUp from "./Pages/SignUp";
 import SignIn from "./Pages/SignIn";
 import Header from "./Components/Header";
+import User from "./Pages/User";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="user/:userId/:num" element={<User />} />
       </Routes>
     </BrowserRouter>
   );
