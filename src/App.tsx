@@ -5,12 +5,15 @@ import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import SignUp from "./Pages/SignUp";
 import SignIn from "./Pages/SignIn";
+import Header from "./Components/Header";
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/sign-up" element={<SignUp />} />
