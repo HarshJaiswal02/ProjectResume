@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SignUp = () => {
+const SignUp :React.FC = () => {
   return (
-    <div>SignUp</div>
+    <div className="bg-blue-300 flex text-3xl">SignUp</div>
   )
 }
 

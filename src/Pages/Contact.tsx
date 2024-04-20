@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Contact = () => {
-  return (
-    <div>Contact</div>
-  )
-}
+const Contact: React.FC = () => {
+  return <div className="bg-blue-300 flex text-3xl">Contact</div>;
+};
 
-export default Contact
+export default Contact;
