@@ -8,7 +8,7 @@ interface UserContextProviderProp {
 const UserContextProvider: React.FC<UserContextProviderProp> = ({
   children,
 }) => {
-  const [user, setUser] = useState<string | null>(null);
+  const [user, setUser] = useState("");
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
@@ -17,4 +17,4 @@ const UserContextProvider: React.FC<UserContextProviderProp> = ({
   );
 };
 
-export default UserContextProvider
+export default UserContextProvider;

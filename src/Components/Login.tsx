@@ -7,6 +7,7 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     setUser(name);
   };
   return (

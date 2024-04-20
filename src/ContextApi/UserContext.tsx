@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 type UserContextType = {
   user: string | null;
-  setUser: (user: string | null) => void;
+  setUser: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const UserContext = createContext<UserContextType>({
