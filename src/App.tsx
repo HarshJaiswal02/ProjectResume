@@ -28,7 +28,7 @@ const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodo = (todo: Todo) => {
-    setTodos((prev) => [...prev, { ...todo, id: Date.now() }]);
+    setTodos((prev) => [...prev, todo]);
   };
 
   const deleteTodo = (id: number) => {
@@ -40,10 +40,33 @@ const App: React.FC = () => {
   };
 
   const toggleComplete = (id: number) => {
-    todos.map((todo) =>
-      todo.id === id ? { ...todo, isCompeleted: !todo.isCompeleted } : todo
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isCompeleted: !todo.isCompeleted } : todo
+      )
     );
   };
+
+  useEffect(() => {
+    const storedTodosString = localStorage.getItem("todos");
+
+    if (storedTodosString) {
+      try {
+        const storedTodos = JSON.parse(storedTodosString) as Todo[];
+        setTodos(storedTodos);
+      } catch (error) {
+        console.error("Error parsing todos from localStorage:", error);
+        setTodos([]); // Reset todos state if parsing fails
+      }
+    } else {
+      console.log("No todos found in localStorage");
+    }
+  }, []); // Empty dependency array to run once on component mount
+
+  useEffect(() => {
+    localStorage.setItem("Todo", JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <UserContextProvider>
       <Router />
@@ -68,7 +91,11 @@ const App: React.FC = () => {
                   <TodoForm />
                 </div>
                 <div className="flex flex-wrap gap-y-3">
-                  <TodoItems />
+                  {todos.map((todo) => (
+                    <div key={todo.id} className="w-full">
+                      <TodoItems todo={todo} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
