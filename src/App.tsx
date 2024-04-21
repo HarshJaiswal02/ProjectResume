@@ -52,19 +52,21 @@ const App: React.FC = () => {
 
     if (storedTodosString) {
       try {
+        console.log(typeof storedTodosString);
         const storedTodos = JSON.parse(storedTodosString) as Todo[];
-        setTodos(storedTodos);
+        console.log(typeof storedTodos);
+        if (storedTodos.length > 0) setTodos(storedTodos);
       } catch (error) {
         console.error("Error parsing todos from localStorage:", error);
-        setTodos([]); // Reset todos state if parsing fails
+        setTodos([]);
       }
     } else {
       console.log("No todos found in localStorage");
     }
-  }, []); // Empty dependency array to run once on component mount
+  }, []);
 
   useEffect(() => {
-    localStorage.setItem("Todo", JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   return (
