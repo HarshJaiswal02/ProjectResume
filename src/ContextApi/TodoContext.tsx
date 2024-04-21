@@ -1,5 +1,5 @@
 import { createContext } from "react";
-interface Todo {
+export interface Todo {
   id: number;
   todo: string;
   isCompeleted: boolean;

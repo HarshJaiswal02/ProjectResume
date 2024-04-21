@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ToggleButton from "./ToogleButton";
 
 interface HeaderList {
   key: number;
@@ -41,6 +42,8 @@ const Header: React.FC = () => {
           {item.data}
         </Link>
       ))}
+      This Toggle will not work(Reason : Not inside the ContextAPI)
+      <ToggleButton />
     </div>
   );
 };
