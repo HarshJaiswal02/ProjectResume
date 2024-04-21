@@ -1,6 +1,9 @@
+import ToggleButton from "./ToogleButton";
+
 export default function Card() {
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-2/12">
+      <ToggleButton />
       <a href="/">
         <img
           className="p-8 rounded-t-lg h-48"
