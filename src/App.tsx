@@ -8,6 +8,8 @@ import { ThemeProvider } from "./ContextApi/Theme";
 import TodoForm from "./Components/TodoForm";
 import TodoItems from "./Components/TodoItems";
 import { Todo, TodoProvider } from "./ContextApi/TodoContext";
+import TodoReduxForm from "./Components/TodoReduxForm";
+import TodoListRedux from "./Components/TodoListRedux";
 
 const App: React.FC = () => {
   const [themeMode, setThemeMode] = useState<string>("light");
@@ -104,6 +106,8 @@ const App: React.FC = () => {
           </TodoProvider>
         </ThemeProvider>
       </div>
+      <TodoReduxForm />
+      <TodoListRedux />
     </UserContextProvider>
   );
 };
